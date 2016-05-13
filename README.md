@@ -1,27 +1,21 @@
-# loopback-component-winston
+# loopback-component-bunyan
 
-Creates winston logger based on configuration in component-config.json file.
+Creates a Bunyan logger based on configuration in component-config.json file.
+
 Here is a small example to illustrate:
 
 ```
 {
 	...
-	"loopback-component-winston": {
-		"level": "verbose",
-		"transports": [
+	"loopback-component-bunyan": {
+		"level": "debug",
+		"streams": [
 			{
-				"type": "Console",
-				"json": true
+				"type": "prettystream",
 			}, {
-				"type": "File",
-				"name": "info-file",
-				"filename": "error.log",
-				"level": "info"
-			}, {
-				"type": "File",
-				"name": "error-file",
-				"filename": "error.log",
-				"level": "error"
+				"type": "logsene",
+				"level": "info",
+				"token": "Your Logsene Token"
 			}
 		]
 	}
@@ -29,8 +23,15 @@ Here is a small example to illustrate:
 }
 ```
 
-The configuration above creates an instance of _winston.Logger_ and binds it to a globally accessible _app.log_ property.
-The _type_ property of transport descriptors denotes the name of the class in _winston.transports_ scope.
+The configuration above creates an instance of _bunyan.Logger_ and binds it to a globally accessible `app._log` property.
+The _type_ property is one of the following supported stream types:
+
+* [prettystream](https://github.com/mrrama/node-bunyan-prettystream)
+* [logentries](https://github.com/nemtsov/node-bunyan-logentries)
+* [logsene](https://github.com/6RiverSystems/bunyan-logsene)
+
+Unfortunately Bunyan does not support a stream registry the way Winston does, so for now this project will need to explicitly
+include the necessary streams.
 
 ## requestLogger Middleware
 
