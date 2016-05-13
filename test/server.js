@@ -1,3 +1,5 @@
+'use strict';
+
 let loopback = require('loopback');
 
 let app = loopback();
