@@ -18,7 +18,7 @@
     "logger",
     "bunyan"
   ],
-  "author": "Nick Chistyakov",
+	"author": "Josh Pollak <josh@6river.com> (http://6river.com/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/6RiverSystems/loopback-component-bunyan/issues"

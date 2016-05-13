@@ -1,12 +1,12 @@
-var loopback = require('loopback');
+let loopback = require('loopback');
 
-var app = loopback();
-var PORT = 3031;
+let app = loopback();
+let PORT = 3031;
 
 app.set('legacyExplorer', false);
 
 app.start = function(done) {
-	var listener = app.listen(PORT, function() {
+	let listener = app.listen(PORT, function() {
 		app.stop = function(cb) {
 			listener.close(cb);
 		};

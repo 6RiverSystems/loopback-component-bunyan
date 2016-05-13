@@ -7,9 +7,9 @@ let expect = require('chai').expect;
 
 let logEntriesAdapter = require('../../lib/streamFactories/logentries');
 
-describe('LogEntries Adapter', function () {
+describe('LogEntries Adapter', function() {
 
-	it('should return a valid LogEntries Stream', function () {
+	it('should return a valid LogEntries Stream', function() {
 		let stream =
 			logEntriesAdapter({
 				level: 'info',

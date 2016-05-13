@@ -7,9 +7,9 @@ let expect = require('chai').expect;
 
 let prettyStreamAdapter = require('../../lib/streamFactories/prettystream');
 
-describe('PrettyStream Adapter', function () {
+describe('PrettyStream Adapter', function() {
 
-	it('should return a valid PrettyStream', function () {
+	it('should return a valid PrettyStream', function() {
 		let stream =
 			prettyStreamAdapter({
 				level: 'info'

@@ -1,7 +1,7 @@
 'use strict';
 
 // require('./mock-streamStub');
-var chai = require('chai');
-var sinonChai = require('sinon-chai');
+let chai = require('chai');
+let sinonChai = require('sinon-chai');
 
 chai.use(sinonChai);

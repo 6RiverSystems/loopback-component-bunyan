@@ -7,9 +7,9 @@ let expect = require('chai').expect;
 
 let logseneAdapter = require('../../lib/streamFactories/logsene');
 
-describe('Logsene Adapter', function () {
+describe('Logsene Adapter', function() {
 
-	it('should return a valid Logsene Stream', function () {
+	it('should return a valid Logsene Stream', function() {
 		let stream =
 			logseneAdapter({
 				level: 'info',
