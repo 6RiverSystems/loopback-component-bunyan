@@ -23,7 +23,6 @@ Here is a small example to illustrate:
 }
 ```
 
-The configuration above creates an instance of _bunyan.Logger_ and binds it to a globally accessible `app._log` property.
 The _type_ property is one of the following supported stream types:
 
 * [prettystream](https://github.com/mrrama/node-bunyan-prettystream)
@@ -32,6 +31,17 @@ The _type_ property is one of the following supported stream types:
 
 Unfortunately Bunyan does not support a stream registry the way Winston does, so for now this project will need to explicitly
 include the necessary streams.
+
+## Getting a Log object
+
+The configuration above attaches a method `app.logger` which can be used to obtain a new logger for your module:
+
+```
+   let log = app.logger('MyComponent');
+
+   log.debug({}, 'My log message');
+
+```
 
 ## requestLogger Middleware
 
