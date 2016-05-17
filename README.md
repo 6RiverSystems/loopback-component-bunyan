@@ -52,7 +52,7 @@ The component comes with a request logging middleware. Bellow is an example of h
 {
 	...
 	"routes": {
-		"loopback-component-winston#requestLogger": {
+		"loopback-component-bunyan#requestLogger": {
 			"params": {
 				"level": "info",
 				"msg": "${res.statusCode} ${req.method} ${res.time}ms ${req.decodedUrl}",
