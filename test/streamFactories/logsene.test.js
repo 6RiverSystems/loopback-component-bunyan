@@ -17,6 +17,7 @@ describe('Logsene Adapter', function() {
 			});
 
 		expect(stream.level).to.equal('info');
+		expect(stream.type).to.equal('raw');
 		expect(stream.stream).to.be.a('Object');
 		expect(stream.stream._client).to.be.a('Object');
 		expect(stream.stream._client.token).to.equal('testToken');
