@@ -21,7 +21,12 @@ describe('Logsene Adapter', function() {
 		expect(stream.stream).to.be.a('Object');
 		expect(stream.stream._client).to.be.a('Object');
 		expect(stream.stream._client.token).to.equal('testToken');
+	});
 
+	it('should throw an exception', function() {
+		expect(logseneAdapter.bind({
+			level: 'info'
+		})).to.throw(Error);
 	});
 
 });

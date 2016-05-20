@@ -2,6 +2,7 @@
 
 let app = {};
 let bunyan = require('bunyan');
+let assert = require('chai').assert;
 let should = require('chai').should();
 let spy = require('sinon').spy;
 let stub = require('sinon').stub;
@@ -57,13 +58,28 @@ describe('loopback-component-bunyan', function() {
 		component(app, {
 			streams: [
 				{type: 'prettystream'},
+				{type: 'logsene', token: 'testToken'}
+			]
+		});
+		should.exist(app._log);
+		assert.equal(app._log.streams.length, 2);
+	});
+
+
+	it('should not fail with a bad stream config', function() {
+		delete app._log;
+		should.not.exist(app._log);
+		component(app, {
+			streams: [
+				{type: 'prettystream'},
 				{type: 'logsene'}
 			]
 		});
 		should.exist(app._log);
+		assert.equal(app._log.streams.length, 1);
 	});
 
-	it('should not throw for manually constructed stream', function() {
+	it('should not throw for a manually constructed stream', function() {
 		(function() {
 			component(app, {
 				streams: [

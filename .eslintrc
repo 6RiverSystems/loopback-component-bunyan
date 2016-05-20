@@ -7,7 +7,6 @@
 		"indent": [2, "tab"],
 		"dot-location": [2, "property"],
 		"no-mixed-spaces-and-tabs": [2, "smart-tabs"],
-		"no-console": [2],
 		"no-var": [2]
 	},
 	"env": {
