@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "2.11.0",
+    "eslint": "2.11.1",
     "eslint-config-defaults": "^9.0.0",
     "loopback": "^2.27.0",
     "mocha": "^2.4.5",
