@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-bunyan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bunyan logger component for loopback",
   "main": "index.js",
   "scripts": {
