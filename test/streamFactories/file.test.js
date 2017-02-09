@@ -1,6 +1,3 @@
-/**
- * Created by jpollak on 5/13/16.
- */
 'use strict';
 
 let expect = require('chai').expect;
