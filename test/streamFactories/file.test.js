@@ -1,15 +1,15 @@
 'use strict';
 
-let expect = require('chai').expect;
+const expect = require('chai').expect;
 
-let fileAdapter = require('../../lib/streamFactories/file');
+const fileAdapter = require('../../lib/streamFactories/file');
 
 describe('File Adapter', function() {
 
 	it('should return a valid Logsene Stream', function() {
 		const logFile = '/var/log/test.log';
 
-		let stream =
+		const stream =
 			fileAdapter({
 				level: 'info',
 				logFile: logFile
