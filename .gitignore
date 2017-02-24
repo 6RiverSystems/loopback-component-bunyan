@@ -44,3 +44,4 @@ node_modules
 .idea/workspace.xml
 .idea/tasks.xml
 .node-version
+.idea
