@@ -28,7 +28,7 @@
     "lodash": "4.16.4",
     "bunyan": "1.8.4",
     "bunyan-logentries": "=1.2.0",
-    "bunyan-logsene": "https://github.com/6RiverSystems/bunyan-logsene.git#v0.0.3",
+    "bunyan-logsene": "git+https://github.com/6RiverSystems/bunyan-logsene.git#v0.0.3",
     "logdna": "1.2.2",
     "bunyan-prettystream": "0.1.3"
   },
