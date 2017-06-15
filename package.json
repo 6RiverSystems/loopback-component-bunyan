@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint .",
-    "test": "./node_modules/.bin/mocha",
-    "test:debug": "npm run test -- --debug-brk",
+    "test": "NODE_ENV=test istanbul cover node_modules/.bin/_mocha -- ${MOCHA_OPTS}",
+    "test:no-cover": "NODE_ENV=test mocha",
+    "test:debug": "npm run test:no-cover -- --debug-brk",
+    "posttest": "nsp check",
     "commitmsg": "validate-commit-msg"
   },
   "repository": {
@@ -31,7 +33,8 @@
     "bunyan-prettystream": "0.1.3",
     "le_node": "^1.7.0",
     "lodash": "4.16.4",
-    "logdna": "1.2.2"
+    "logdna": "1.2.2",
+    "nsp": "^2.6.3"
   },
   "devDependencies": {
     "chai": "3.5.0",
