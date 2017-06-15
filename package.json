@@ -6,7 +6,8 @@
   "scripts": {
     "pretest": "eslint .",
     "test": "./node_modules/.bin/mocha",
-    "test:debug": "npm run test -- --debug-brk"
+    "test:debug": "npm run test -- --debug-brk",
+    "commitmsg": "validate-commit-msg"
   },
   "repository": {
     "type": "git",
@@ -34,12 +35,37 @@
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "cz-conventional-changelog": "^2.0.0",
     "eslint": "3.8.1",
     "eslint-config-defaults": "9.0.0",
+    "husky": "^0.13.4",
     "loopback": "2.36.0",
     "mocha": "3.1.2",
     "sinon": "1.17.6",
     "sinon-chai": "2.8.0",
-    "supertest": "2.0.1"
+    "supertest": "2.0.1",
+    "validate-commit-msg": "^2.12.2"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": "Follow <type>(<scope>): <subject> pattern, max 100 chars.",
+      "autoFix": false
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

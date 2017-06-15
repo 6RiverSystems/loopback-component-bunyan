@@ -1,9 +1,23 @@
 machine:
   node:
-    version: 5.7.0
+    version: 7.5.0
+  environment:
+    MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/mocha/junit.xml
 
 dependencies:
-  cache_directories:
-    - node_modules
+  pre:
+    - ./scripts/setupNpm.sh
+
+test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/mocha
   override:
-    - npm prune && npm install
+    - npm test
+  post:
+    - mv coverage $CIRCLE_TEST_REPORTS
+
+deployment:
+  all:
+    branch: /.*/
+    commands:
+      - ./scripts/release.sh
