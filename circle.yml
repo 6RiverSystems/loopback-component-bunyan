@@ -6,7 +6,7 @@ machine:
 
 dependencies:
   pre:
-    - ./scripts/setupNpm.sh
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
 
 test:
   pre:
