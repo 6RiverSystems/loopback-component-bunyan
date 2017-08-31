@@ -12,10 +12,6 @@ Here is a small example to illustrate:
 		"streams": [
 			{
 				"type": "prettystream",
-			}, {
-				"type": "logsene",
-				"level": "info",
-				"token": "Your Logsene Token"
 			}
 		]
 	}
@@ -27,7 +23,6 @@ The _type_ property is one of the following supported stream types:
 
 * [prettystream](https://github.com/mrrama/node-bunyan-prettystream)
 * [logentries](https://github.com/nemtsov/node-bunyan-logentries)
-* [logsene](https://github.com/6RiverSystems/bunyan-logsene)
 * [LogDNA](https://github.com/6RiverSystems/logdna-nodejs)
 
 Unfortunately Bunyan does not support a stream registry the way Winston does, so for now this project will need to explicitly

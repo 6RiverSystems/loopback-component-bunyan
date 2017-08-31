@@ -29,7 +29,6 @@
   "homepage": "https://github.com/6RiverSystems/loopback-component-bunyan#readme",
   "dependencies": {
     "bunyan": "1.8.4",
-    "bunyan-logsene": "git+https://github.com/6RiverSystems/bunyan-logsene.git#v0.0.3",
     "bunyan-prettystream": "0.1.3",
     "istanbul": "^0.4.5",
     "le_node": "^1.7.0",
