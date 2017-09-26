@@ -6,7 +6,7 @@ const fileAdapter = require('../../lib/streamFactories/file');
 
 describe('File Adapter', function() {
 
-	it('should return a valid Logsene Stream', function() {
+	it('should return a valid File Stream', function() {
 		const logFile = '/var/log/test.log';
 
 		const stream =

@@ -58,11 +58,10 @@ describe('loopback-component-bunyan', function() {
 		component(app, {
 			streams: [
 				{type: 'prettystream'},
-				{type: 'logsene', token: 'testToken'}
 			]
 		});
 		should.exist(app._log);
-		assert.equal(app._log.streams.length, 2);
+		assert.equal(app._log.streams.length, 1);
 	});
 
 
@@ -72,7 +71,6 @@ describe('loopback-component-bunyan', function() {
 		component(app, {
 			streams: [
 				{type: 'prettystream'},
-				{type: 'logsene'}
 			]
 		});
 		should.exist(app._log);
