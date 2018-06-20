@@ -40,7 +40,7 @@ jobs:
           name: Get CI Scripts
           command: |
             git submodule update --init
-            'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+            echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
       - run:
           name: npm run build
           command: npm run build
