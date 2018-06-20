@@ -55,7 +55,7 @@ describe('middleware', function() {
 	});
 
 	afterEach(function() {
-		spy.reset();
+		spy.resetHistory();
 	});
 
 	it('should report GET', function(done) {
