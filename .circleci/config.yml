@@ -19,35 +19,6 @@ jobs:
           root: ./
           paths:
             - .
-  publish:
-    docker:
-      - image: cimg/node:12.22.1
-        environment:
-          NODE_ENV: test
-    steps:
-      - attach_workspace:
-          at: ./
-      - run:
-          name: npm run build
-          command: npm run build
-      - sixrs-gke/run-release
-      - run:
-          name: npm publish
-          command: npm publish
-
-  # note: unused
-  test-schema:
-    docker:
-      - image: cimg/node:12.22.1
-        environment:
-          NODE_ENV: test
-    steps:
-      - attach_workspace:
-          at: ./
-      - run:
-          name: npm test schema
-          command: npm run test:schema
-
   test:
     docker:
       - image: cimg/node:12.22.1
@@ -70,6 +41,22 @@ jobs:
           path: reports/junit/
       - store_test_results:
           path: reports/junit/
+
+  publish:
+    docker:
+      - image: cimg/node:12.22.1
+        environment:
+          NODE_ENV: test
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: npm run build
+          command: npm run build
+      - sixrs-gke/run-release
+      - run:
+          name: npm publish
+          command: npm publish
 
 workflows:
   version: 2
