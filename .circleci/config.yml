@@ -31,7 +31,9 @@ jobs:
           name: npm run build
           command: npm run build
       - sixrs-gke/run-release
-      - sixrs-gke/npm-publish
+      - run:
+          name: npm publish
+          command: npm publish
 
   # note: unused
   test-schema:
