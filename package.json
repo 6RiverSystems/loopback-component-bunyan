@@ -10,7 +10,7 @@
     "test:no-cover": "NODE_ENV=test mocha",
     "test:debug": "npm run test:no-cover -- --debug-brk",
     "posttest": "nsp check --cvss-threshold 13",
-    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls",
+    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov | echo 'lol coveralls is gone'",
     "commitmsg": "commitlint -e ${GIT_PARAMS}",
     "commit": "commit"
   },
