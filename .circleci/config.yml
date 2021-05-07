@@ -55,6 +55,10 @@ jobs:
           command: npm run build
       - sixrs-gke/run-release
       - run:
+          name: Set NPM Auth
+          command: |
+            npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
+      - run:
           name: npm publish
           command: npm publish
 
