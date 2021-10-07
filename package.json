@@ -3,6 +3,9 @@
 	"version": "0.0.0-development",
 	"description": "Bunyan logger component for loopback",
 	"main": "index.js",
+	"engines": {
+		"node": ">= 14.17.6"
+	},
 	"scripts": {
 		"build": "true",
 		"pretest": "eslint ${ESLINT_OPTS} .",

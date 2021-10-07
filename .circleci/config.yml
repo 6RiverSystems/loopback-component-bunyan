@@ -6,7 +6,7 @@ orbs:
 jobs:
   install:
     docker:
-      - image: cimg/node:12.22.1
+      - image: cimg/node:14.17.6
         environment:
           NODE_ENV: test
     steps:
@@ -21,7 +21,7 @@ jobs:
             - .
   test:
     docker:
-      - image: cimg/node:12.22.1
+      - image: cimg/node:14.17.6
         environment:
           NODE_ENV: test
           MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
@@ -44,7 +44,7 @@ jobs:
 
   publish:
     docker:
-      - image: cimg/node:12.22.1
+      - image: cimg/node:14.17.6
         environment:
           NODE_ENV: test
     steps:
