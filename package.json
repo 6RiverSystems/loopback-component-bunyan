@@ -23,7 +23,7 @@
     "build": "true",
     "commit": "commit",
     "commitmsg": "commitlint -e ${GIT_PARAMS}",
-    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov",
+    "coverage": "NODE_ENV=test nyc report --reporter=text-lcov > .nyc_output/coverage.lcov",
     "pretest": "eslint ${ESLINT_OPTS} .",
     "test": "NODE_ENV=test nyc mocha ${MOCHA_OPTS}",
     "test:debug": "npm run test:no-cover -- --debug-brk",
