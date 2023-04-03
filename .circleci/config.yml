@@ -1,12 +1,15 @@
 version: 2.1
 
 orbs:
-  sixrs-gke: sixriversystems/sixrs-gke@2
+  sixrs-gke: sixriversystems/sixrs-gke@7
+
+aliases:
+  - &node_image cimg/node:16.19.1
 
 jobs:
   install:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
         environment:
           NODE_ENV: test
     steps:
@@ -21,7 +24,7 @@ jobs:
             - .
   test:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
         environment:
           NODE_ENV: test
           MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
@@ -29,12 +32,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
-      - run:
-          name: npm test
-          command: npm test
-      - run:
-          name: npm run coverage
-          command: npm run coverage
+      - run: npm test
+      - run: npm run coverage
+      - sixrs-gke/codecov
       - store_artifacts:
           path: coverage
       - store_artifacts:
@@ -44,23 +44,15 @@ jobs:
 
   publish:
     docker:
-      - image: cimg/node:14.17.6
+      - image: *node_image
         environment:
           NODE_ENV: test
     steps:
       - attach_workspace:
           at: ./
-      - run:
-          name: npm run build
-          command: npm run build
+      # pure-js, no build step
       - sixrs-gke/run-release
-      - run:
-          name: Set NPM Auth
-          command: |
-            npm config set //registry.npmjs.org/:_authToken "${NPM_TOKEN}"
-      - run:
-          name: npm publish
-          command: npm publish
+      - sixrs-gke/npm-public-publish
 
 workflows:
   version: 2
